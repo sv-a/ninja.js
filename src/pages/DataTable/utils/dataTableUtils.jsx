@@ -9,24 +9,19 @@ export const filteredText = (rows, searchText) => {
 export const getRowsToRender = (initialRows, rowsPerPage, searchText) => {
   if (searchText) {
     const filteredResult = filteredText(initialRows, searchText)
-    const rows = rowsPerPages(filteredResult, rowsPerPage)
 
-    return rows
+    return rowsPerPages(filteredResult, rowsPerPage)
   }
 
-  const rows = rowsPerPages(initialRows, rowsPerPage)
-
-  return rows
+  return rowsPerPages(initialRows, rowsPerPage)
 }
 
 const rowsPerPages = (initialRows, rowsPerPage) => {
-  const rows = initialRows.reduce((acc, val, index) => {
+  return initialRows.reduce((acc, val, index) => {
     const idx = Math.floor(index / rowsPerPage)
     const page = acc[idx + 1] || (acc[idx + 1] = [])
     page.push(val)
 
     return acc
-  }, {})
-
-  return rows;
+  }, {});
 }

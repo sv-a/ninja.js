@@ -14,8 +14,7 @@ const Pagination = React.forwardRef((props, ref) => (
 export default Pagination
 
 export const Page = ({ currentPageNumber, activePage, onChange }) => {
-  const click = (event) => {
-    event.preventDefault()
+  const click = () => {
     onChange(currentPageNumber)
   }
 
